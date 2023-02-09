@@ -10,7 +10,7 @@ colors.enable();
 const app = express();
 const server = http.createServer(app);
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded());//{extended: false}
 
 app.use("/add-product", (req, res, next) => {
   res.send(
