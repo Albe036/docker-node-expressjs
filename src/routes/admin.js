@@ -8,7 +8,7 @@ router_.get("/add-product", (req, res, next) => {
   res.status(200).send(
     `<html>
     <body>
-      <form action="/product" method="POST">
+      <form action="/admin/add-product" method="POST">
         <input type="text" name="title"/>
         <button type="submit">send book</button>
       </form>
@@ -17,10 +17,10 @@ router_.get("/add-product", (req, res, next) => {
   );
 });
 
-router_.post('/product', (req, res, next) => {
+router_.post('/add-product', (req, res, next) => {
   console.log(req.body);
   result = req.body.title;
-  res.redirect('/');
+  //res.redirect('/');
 });
 
 export default router_;
