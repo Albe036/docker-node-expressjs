@@ -20,7 +20,13 @@ router_.get("/add-product", (req, res, next) => {
 router_.post('/add-product', (req, res, next) => {
   console.log(req.body);
   result = req.body.title;
-  //res.redirect('/');
+  res.redirect('/');
+});
+
+router_.get('/product/:id', (req, res, next) => {
+  const prodId = req.params.id;
+  console.log(prodId);
+  res.redirect('/');
 });
 
 export default router_;
