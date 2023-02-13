@@ -12,17 +12,21 @@ colors.enable();
 const app = express();
 const server = http.createServer(app);
 
+/**
+ * Imports routes 
+ */
 import admin from './routes/admin';
 import notFound from './routes/notFound';
-import home from './routes/home';
-
-app.use(bodyParser.urlencoded({ extended: false }));//{extended: false}
+/**
+ * Use middleware
+ */
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(join(require.main.path, 'public')));
 app.use(express.json());
+//Routes
+app.use('/admin', admin);
+app.use(notFound);  //Page not found */
 
-app.use('/admin', admin); //router add-product
-/* app.use(home); //home (index.html)
-app.use(notFound); //Page not found */
 
 server.listen(PORT, () => {
   console.log(`Listen on port ${PORT}`.cyan.bold);

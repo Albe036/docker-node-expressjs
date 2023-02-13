@@ -1,5 +1,12 @@
 import adminModel from '../models/admin';
 
+/**
+ * Add user for file
+ * @param {object} req request
+ * @param {Object} res response
+ * @param {Function} next function next middleware
+ * @returns {void}
+ */
 const addUser = (req, res, next) => {
   adminModel.getUsers(data => {
     let db = data;
@@ -14,6 +21,13 @@ const addUser = (req, res, next) => {
   });
 };
 
+/**
+ * gets user from file
+ * @param {object} req request
+ * @param {Object} res response
+ * @param {Function} next function next middleware
+ * @returns {void}
+ */
 const getUsers = (req, res, next) => {
   finn
   adminModel.getUsers(data => {
@@ -21,13 +35,26 @@ const getUsers = (req, res, next) => {
   })
 };
 
+/**
+ * get user from file
+ * @param {object} req request
+ * @param {Object} res response
+ * @param {Function} next function next middleware
+ * @returns {void}
+ */
 const getUser = (req, res, next) => {
   adminModel.getUsers(data => {
     const user = data.find(user => user.id === req.params.iduser);
     res.status(200).json({ user });
   })
 };
-
+/**
+ * modify user for file
+ * @param {object} req request
+ * @param {Object} res response
+ * @param {Function} next function next middleware
+ * @returns {void}
+ */
 const setUser = (req, res, next) => {
   adminModel.getUsers(data => {
     let db = data;
@@ -47,7 +74,13 @@ const setUser = (req, res, next) => {
     }
   })
 };
-
+/**
+ * delete user for file
+ * @param {object} req request
+ * @param {Object} res response
+ * @param {Function} next function next middleware
+ * @returns {void}
+ */
 const deleteUser = (req, res, next) => {
   adminModel.getUsers(data => {
     const user = data.find(user => user.id = req.params.iduser);
