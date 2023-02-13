@@ -1,32 +1,16 @@
 import { Router } from 'express';
+import controllers_admin from '../controllers/admin';
 
 const router_ = Router();
 
-let result;
+router_.post('/add-user', controllers_admin.addUser);
 
-router_.get("/add-product", (req, res, next) => {
-  res.status(200).send(
-    `<html>
-    <body>
-      <form action="/admin/add-product" method="POST">
-        <input type="text" name="title"/>
-        <button type="submit">send book</button>
-      </form>
-    </body>
-  </html>`
-  );
-});
+router_.get('/get-users', controllers_admin.getUsers);
 
-router_.post('/add-product', (req, res, next) => {
-  console.log(req.body);
-  result = req.body.title;
-  res.redirect('/');
-});
+router_.get('/get-user/:iduser', controllers_admin.getUser);
 
-router_.get('/product/:id', (req, res, next) => {
-  const prodId = req.params.id;
-  console.log(prodId);
-  res.redirect('/');
-});
+router_.put('/set-user/:iduser', controllers_admin.setUser);
+
+router_.delete('/delete-user/:iduser', controllers_admin.deleteUser);
 
 export default router_;

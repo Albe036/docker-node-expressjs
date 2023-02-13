@@ -16,12 +16,13 @@ import admin from './routes/admin';
 import notFound from './routes/notFound';
 import home from './routes/home';
 
-app.use(bodyParser.urlencoded({extended: false}));//{extended: false}
+app.use(bodyParser.urlencoded({ extended: false }));//{extended: false}
 app.use(express.static(join(require.main.path, 'public')));
+app.use(express.json());
 
-app.use(home); //home (index.html)
-app.use('/admin',admin); //router add-product
-app.use(notFound); //Page not found
+app.use('/admin', admin); //router add-product
+/* app.use(home); //home (index.html)
+app.use(notFound); //Page not found */
 
 server.listen(PORT, () => {
   console.log(`Listen on port ${PORT}`.cyan.bold);
